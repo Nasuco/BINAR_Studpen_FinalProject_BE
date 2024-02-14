@@ -6,22 +6,22 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const {
-  DB_USERNAME,
-  DB_PASSWORD,
-  DB_HOST,
-  DB_NAME,
-  DB_PORT,
-  DATABASE_URL
+  POSTGRES_USER,
+  POSTGRES_PASSWORD,
+  POSTGRES_HOST,
+  POSTGRES_DATABASE,
+  POSTGRES_PORT,
+  POSTGRES_URL
 } = process.env;
 
-const sequelize = new Sequelize(DATABASE_URL || {
+const sequelize = new Sequelize(POSTGRES_URL || {
   dialect: 'postgres',
   dialectModule: pg,
-  host: DB_HOST,
-  port: DB_PORT,
-  database: DB_NAME,
-  username: DB_USERNAME,
-  password: DB_PASSWORD,
+  host: POSTGRES_HOST,
+  port: POSTGRES_PORT,
+  database: POSTGRES_DATABASE,
+  username: POSTGRES_USER,
+  password: POSTGRES_PASSWORD,
   dialectOptions: {
     ssl: {
       require: true,
@@ -33,29 +33,29 @@ const sequelize = new Sequelize(DATABASE_URL || {
 
 module.exports = {
   development: {
-    username: DB_USERNAME,
-    password: DB_PASSWORD,
-    database: DB_NAME,
-    host: DB_HOST,
-    port: DB_PORT,
+    username: POSTGRES_USER,
+    password: POSTGRES_PASSWORD,
+    database: POSTGRES_DATABASE,
+    host: POSTGRES_HOST,
+    port: POSTGRES_PORT,
     dialect: "postgres",
     timezone: '+07:00',
   },
   test: {
-    username: DB_USERNAME,
-    password: DB_PASSWORD,
-    database: DB_NAME,
-    host: DB_HOST,
-    port: DB_PORT,
+    username: POSTGRES_USER,
+    password: POSTGRES_PASSWORD,
+    database: POSTGRES_DATABASE,
+    host: POSTGRES_HOST,
+    port: POSTGRES_PORT,
     dialect: "postgres",
     timezone: '+07:00',
   },
   production: {
-    username: DB_USERNAME,
-    password: DB_PASSWORD,
-    database: DB_NAME,
-    host: DB_HOST,
-    port: DB_PORT,
+    username: POSTGRES_USER,
+    password: POSTGRES_PASSWORD,
+    database: POSTGRES_DATABASE,
+    host: POSTGRES_HOST,
+    port: POSTGRES_PORT,
     dialect: "postgres",
     timezone: '+07:00',
   },
