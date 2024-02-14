@@ -1,10 +1,10 @@
+// config/database.js
 import { Sequelize } from 'sequelize';
 import * as pg from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
-/** Destruct environment variable to get database configuration */
 const {
   DB_USERNAME,
   DB_PASSWORD,
@@ -31,4 +31,19 @@ const sequelize = new Sequelize(DATABASE_URL || {
   timezone: '+07:00'
 });
 
+module.exports = {
+  development: {
+    use_env_variable: 'DATABASE_URL',
+    dialect: 'postgres',
+    // ... other configuration options for development
+  },
+  production: {
+    use_env_variable: 'DATABASE_URL',
+    dialect: 'postgres',
+    // ... other configuration options for production
+  },
+  // ... other environments
+};
+
+export { sequelize, Sequelize };
 export default sequelize;
