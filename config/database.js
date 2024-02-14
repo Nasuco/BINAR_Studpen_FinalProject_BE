@@ -1,9 +1,7 @@
 // config/database.js
 
-import * as pg from 'pg';
-import dotenv from 'dotenv';
-
-dotenv.config();
+const { Pool } = require('pg');
+require('dotenv').config();
 
 const {
   POSTGRES_USER,
@@ -13,33 +11,23 @@ const {
   POSTGRES_URL
 } = process.env;
 
-
 module.exports = {
   development: {
-    username: POSTGRES_USER,
-    password: POSTGRES_PASSWORD,
-    database: POSTGRES_DATABASE,
-    host: POSTGRES_HOST,
+    connectionString: `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DATABASE}?sslmode=require`,
     dialect: "postgres",
-    dialectModule: pg,
+    dialectModule: Pool,
     timezone: '+07:00',
   },
   test: {
-    username: POSTGRES_USER,
-    password: POSTGRES_PASSWORD,
-    database: POSTGRES_DATABASE,
-    host: POSTGRES_HOST,
+    connectionString: `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DATABASE}?sslmode=require`,
     dialect: "postgres",
-    dialectModule: pg,
+    dialectModule: Pool,
     timezone: '+07:00',
   },
   production: {
-    username: POSTGRES_USER,
-    password: POSTGRES_PASSWORD,
-    database: POSTGRES_DATABASE,
-    host: POSTGRES_HOST,
+    connectionString: `postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DATABASE}?sslmode=require`,
     dialect: "postgres",
-    dialectModule: pg,
+    dialectModule: Pool,
     timezone: '+07:00',
   },
 };
