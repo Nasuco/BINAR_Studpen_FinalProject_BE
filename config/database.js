@@ -1,5 +1,6 @@
 // config/database.js
 
+import * as pg from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -12,6 +13,7 @@ const {
   POSTGRES_URL
 } = process.env;
 
+
 module.exports = {
   development: {
     username: POSTGRES_USER,
@@ -19,6 +21,7 @@ module.exports = {
     database: POSTGRES_DATABASE,
     host: POSTGRES_HOST,
     dialect: "postgres",
+    dialectModule: pg,
     timezone: '+07:00',
   },
   test: {
@@ -27,6 +30,7 @@ module.exports = {
     database: POSTGRES_DATABASE,
     host: POSTGRES_HOST,
     dialect: "postgres",
+    dialectModule: pg,
     timezone: '+07:00',
   },
   production: {
@@ -35,6 +39,7 @@ module.exports = {
     database: POSTGRES_DATABASE,
     host: POSTGRES_HOST,
     dialect: "postgres",
+    dialectModule: pg,
     timezone: '+07:00',
   },
 };
