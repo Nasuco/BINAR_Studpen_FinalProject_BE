@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import pg from 'pg';
+import * as pg from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,10 +10,11 @@ const {
   DB_PASSWORD,
   DB_HOST,
   DB_NAME,
-  DB_PORT
+  DB_PORT,
+  DATABASE_URL
 } = process.env;
 
-const sequelize = new Sequelize({
+const sequelize = new Sequelize(DATABASE_URL || {
   dialect: 'postgres',
   dialectModule: pg,
   host: DB_HOST,
@@ -24,11 +25,10 @@ const sequelize = new Sequelize({
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false,
-    },
+      rejectUnauthorized: false
+    }
   },
-  timezone: '+07:00',
-  url: process.env.DATABASE_URL,
+  timezone: '+07:00'
 });
 
 export default sequelize;

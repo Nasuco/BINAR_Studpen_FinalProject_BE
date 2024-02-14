@@ -9,14 +9,14 @@ const config = require(__dirname + "/../../config/database.js")[env];
 const db = {};
 
 let sequelize;
-if (config && config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+if (config && config[env] && config[env].use_env_variable) {
+  sequelize = new Sequelize(process.env[config[env].use_env_variable], config[env]);
 } else {
   sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
+    config[env].database,
+    config[env].username,
+    config[env].password,
+    config[env]
   );
 }
 
