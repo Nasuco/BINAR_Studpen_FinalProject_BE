@@ -21,16 +21,32 @@ const sequelize = new Sequelize(DATABASE_URL || {
 
 module.exports = {
   development: {
-    use_env_variable: 'DATABASE_URL',
-    dialect: 'postgres',
-    // ... other configuration options for development
+    username: DB_USERNAME,
+    password: DB_PASSWORD,
+    database: `${DB_NAME}`,
+    host: DB_HOST,
+    port: DB_PORT,
+    dialect: "postgres",
+    timezone: '+07:00',
+  },
+  test: {
+    username: DB_USERNAME,
+    password: DB_PASSWORD,
+    database: `${DB_NAME}`,
+    host: DB_HOST,
+    port: DB_PORT,
+    dialect: "postgres",
+    timezone: '+07:00',
   },
   production: {
-    use_env_variable: 'DATABASE_URL',
-    dialect: 'postgres',
-    // ... other configuration options for production
+    username: DB_USERNAME,
+    password: DB_PASSWORD,
+    database: `${DB_NAME}`,
+    host: DB_HOST,
+    port: DB_PORT,
+    dialect: "postgres",
+    timezone: '+07:00',
   },
-  // ... other environments
 };
 
 export { sequelize, Sequelize };
