@@ -3,7 +3,8 @@
  * @author BINAR_C7
  */
 
-const dotenv = require('dotenv')
+const { Sequelize } = require('sequelize');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -16,32 +17,12 @@ const {
   DB_PORT = process.env.DB_PORT
 } = process.env;
 
-module.exports = {
-  development: {
-    username: DB_USERNAME,
-    password: DB_PASSWORD,
-    database: `${DB_NAME}`,
-    host: DB_HOST,
-    port: DB_PORT,
-    dialect: "postgres",
-    timezone: '+07:00',
-  },
-  test: {
-    username: DB_USERNAME,
-    password: DB_PASSWORD,
-    database: `${DB_NAME}`,
-    host: DB_HOST,
-    port: DB_PORT,
-    dialect: "postgres",
-    timezone: '+07:00',
-  },
-  production: {
-    username: DB_USERNAME,
-    password: DB_PASSWORD,
-    database: `${DB_NAME}`,
-    host: DB_HOST,
-    port: DB_PORT,
-    dialect: "postgres",
-    timezone: '+07:00',
-  },
-};
+/** Initialize Sequelize connection */
+const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
+  host: DB_HOST,
+  port: DB_PORT,
+  dialect: "postgres",
+  timezone: '+07:00',
+});
+
+module.exports = sequelize;
