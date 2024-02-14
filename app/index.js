@@ -19,5 +19,3 @@ app.use(express.json());
 app.use(router);
 
 module.exports = app;
-
-app.listen(process.env.PORT, () => console.log("Server running port 3000"))
