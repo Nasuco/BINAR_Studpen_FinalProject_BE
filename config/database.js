@@ -1,6 +1,5 @@
 // config/database.js
-import { Sequelize } from 'sequelize';
-import * as pg from 'pg';
+
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -12,22 +11,6 @@ const {
   POSTGRES_DATABASE,
   POSTGRES_URL
 } = process.env;
-
-const sequelize = new Sequelize(POSTGRES_URL || {
-  dialect: 'postgres',
-  dialectModule: pg,
-  host: POSTGRES_HOST,
-  database: POSTGRES_DATABASE,
-  username: POSTGRES_USER,
-  password: POSTGRES_PASSWORD,
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false
-    }
-  },
-  timezone: '+07:00'
-});
 
 module.exports = {
   development: {
@@ -55,6 +38,3 @@ module.exports = {
     timezone: '+07:00',
   },
 };
-
-// export { sequelize, Sequelize };
-export default sequelize;
