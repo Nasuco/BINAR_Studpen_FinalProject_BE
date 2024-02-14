@@ -12,11 +12,12 @@ let sequelize;
 if (config && config[env] && config[env].use_env_variable) {
   sequelize = new Sequelize(process.env[config[env].use_env_variable], config[env]);
 } else {
+  const dbConfig = config[env] || config; // Jika config[env] tidak terdefinisi, gunakan konfigurasi langsung dari config
   sequelize = new Sequelize(
-    config[env].database,
-    config[env].username,
-    config[env].password,
-    config[env]
+    dbConfig.database,
+    dbConfig.username,
+    dbConfig.password,
+    dbConfig
   );
 }
 
