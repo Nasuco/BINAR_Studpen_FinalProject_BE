@@ -5,11 +5,23 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const { DATABASE_URL } = process.env;
+const {
+  DB_USERNAME,
+  DB_PASSWORD,
+  DB_HOST,
+  DB_NAME,
+  DB_PORT,
+  DATABASE_URL
+} = process.env;
 
 const sequelize = new Sequelize(DATABASE_URL || {
   dialect: 'postgres',
   dialectModule: pg,
+  host: DB_HOST,
+  port: DB_PORT,
+  database: DB_NAME,
+  username: DB_USERNAME,
+  password: DB_PASSWORD,
   dialectOptions: {
     ssl: {
       require: true,
@@ -23,7 +35,7 @@ module.exports = {
   development: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: `${DB_NAME}`,
+    database: DB_NAME,
     host: DB_HOST,
     port: DB_PORT,
     dialect: "postgres",
@@ -32,7 +44,7 @@ module.exports = {
   test: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: `${DB_NAME}`,
+    database: DB_NAME,
     host: DB_HOST,
     port: DB_PORT,
     dialect: "postgres",
@@ -41,7 +53,7 @@ module.exports = {
   production: {
     username: DB_USERNAME,
     password: DB_PASSWORD,
-    database: `${DB_NAME}`,
+    database: DB_NAME,
     host: DB_HOST,
     port: DB_PORT,
     dialect: "postgres",
