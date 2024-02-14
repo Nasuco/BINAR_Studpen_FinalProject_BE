@@ -56,5 +56,5 @@ module.exports = {
   },
 };
 
-export { sequelize, Sequelize };
+// export { sequelize, Sequelize };
 export default sequelize;
