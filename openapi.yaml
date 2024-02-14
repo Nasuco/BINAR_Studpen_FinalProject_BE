@@ -4,7 +4,7 @@ info:
   version: 0.0.0.4
 servers:
 - description: Mock Server
-  url: https://binarstudpenfinalprojectbe-production-77a5.up.railway.app
+  url: https://binar-studpen-final-project-mn8viq4zg-nasuco.vercel.app
 tags:
 - name: Airplane Ticket
   description: Contain every CRUD, authentication, and authorization operation about Airplane Tikcet Resource
