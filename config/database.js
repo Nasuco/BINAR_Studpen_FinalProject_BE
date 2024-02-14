@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize';
-import * as pg from 'pg';
+import pg from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -24,10 +24,11 @@ const sequelize = new Sequelize({
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false // Add this line if you're getting SSL error
-    }
+      rejectUnauthorized: false,
+    },
   },
-  timezone: '+07:00'
+  timezone: '+07:00',
+  url: process.env.DATABASE_URL,
 });
 
 export default sequelize;
