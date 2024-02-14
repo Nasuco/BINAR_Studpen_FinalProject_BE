@@ -14,15 +14,12 @@ const {
 } = process.env;
 
 /** Initialize Sequelize connection */
-const sequelize = new Sequelize({
-  dialect: 'postgres',
-  username: DB_USERNAME,
-  password: DB_PASSWORD,
+const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
   host: DB_HOST,
   port: DB_PORT,
-  database: DB_NAME,
+  dialect: 'postgres',
   dialectModule: pg,
   timezone: '+07:00',
-});
+})
 
 export default sequelize;
