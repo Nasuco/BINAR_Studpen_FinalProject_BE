@@ -13,7 +13,7 @@ const {
   DB_PASSWORD = process.env.DB_PASSWORD,
   DB_HOST = process.env.DB_HOST,
   DB_NAME = process.env.DB_NAME,
-  // DB_PORT = process.env.DB_PORT
+  DB_PORT = process.env.DB_PORT
 } = process.env;
 
 module.exports = {
@@ -22,7 +22,7 @@ module.exports = {
     password: DB_PASSWORD,
     database: `${DB_NAME}`,
     host: DB_HOST,
-    // port: DB_PORT,
+    port: DB_PORT,
     dialect: "postgres",
     timezone: '+07:00',
   },
@@ -31,7 +31,7 @@ module.exports = {
     password: DB_PASSWORD,
     database: `${DB_NAME}`,
     host: DB_HOST,
-    // port: DB_PORT,
+    port: DB_PORT,
     dialect: "postgres",
     timezone: '+07:00',
   },
@@ -40,7 +40,7 @@ module.exports = {
     password: DB_PASSWORD,
     database: `${DB_NAME}`,
     host: DB_HOST,
-    // port: DB_PORT,
+    port: DB_PORT,
     dialect: "postgres",
     timezone: '+07:00',
   },
