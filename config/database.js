@@ -18,10 +18,10 @@ const {
 } = process.env;
 
 /** Initialize Sequelize connection */
-const sequelize = new Sequelize(DB_NAME, DB_USERNAME, DB_PASSWORD, {
-  host: DB_HOST,
-  port: DB_PORT,
-  dialect: "postgres",
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  dialect: 'postgres',
   timezone: '+07:00',
 });
 
