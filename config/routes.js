@@ -12,7 +12,7 @@ const swaggerDocument = YAML.load(path.join(__dirname, '../openapi.yaml'));
 const apiRouter = express.Router();
 
 apiRouter.use(cors());
-apiRouter.use('/swagger-ui', express.static(path.join(__dirname, '../bin/public/dist'), { extensions: ['css'] }));
+
 apiRouter.use(express.static(path.join(__dirname, '../bin/public')));
 apiRouter.use('/', swaggerUi.serve);
 apiRouter.get('/', swaggerUi.setup(swaggerDocument));
