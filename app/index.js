@@ -7,6 +7,9 @@ const express = require("express");
 const morgan = require("morgan");
 const router = require("../config/routes");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerJsondoc = require("swagger-jsdoc");
+
 const app = express();
 
 app.use(morgan("dev"));

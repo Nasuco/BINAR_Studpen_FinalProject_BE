@@ -36,7 +36,9 @@
     "sequelize-cli": "^6.4.1",
     "set-tz": "^0.2.0",
     "supertest": "^6.3.3",
-    "swagger-ui-express": "^4.6.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui": "^5.11.4",
+    "swagger-ui-express": "^4.6.3",
     "uuid": "^7.0.3",
     "yamljs": "^0.3.0"
   },
